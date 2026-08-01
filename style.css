@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background-color: chocolate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    }
+
+input{
+    padding: 10px 20px;
+    border-radius: 20px;
+    width:50%;
+    text-align: center;
+    outline: 0;
+    border: 0;
+}
+
+button, p{
+    margin-top: 20px;
+    padding: 10px 20px;
+}
+
+video{
+    margin-top: 10px;
+    border-radius: 30px;
+}
+
+canvas{
+    display: none;
+}
+
