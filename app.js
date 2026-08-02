@@ -20,8 +20,8 @@ async function openCamera(params) {
        stream = await navigator.mediaDevices.getUserMedia({
         video: {
             facingMode:"environment",
-            width:200,
-            height:200
+            width:{ ideal : 1920},
+            height:{ ideal : 1080}
         }
        })
 
