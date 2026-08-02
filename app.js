@@ -8,6 +8,8 @@ const message = document.getElementById("guide")
 let stream;
 
 
+                 // OPEN CAMERA
+
 openCameraButton.addEventListener("click", openCamera)
 
 
@@ -41,8 +43,11 @@ async function openCamera(params) {
     
 }
 
-captureButton.addEventListener("click", capturePhoto)
 
+
+                   // CAPTURE PHOTO
+
+captureButton.addEventListener("click", capturePhoto)
 
 function capturePhoto(params) {
 
@@ -54,9 +59,23 @@ function capturePhoto(params) {
   drawer.drawImage(tv, 0, 0)
 
   captureButton.classList.add("hide")
+
+  closeCamera()
     
 }
 
+
+                    // CLOSE CAMERA
+
+function closeCamera(params) {
+
+    stream.getTracks().forEach(track => {
+        track.stop()
+    });
+
+    tv.srcObject = null;
+    
+}
     
 /*
     
