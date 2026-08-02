@@ -53,6 +53,8 @@ app.post("/ocr", (req, res)=>{
     const result = await sendMesage()
     const endResult = result.choices[0].message.content;
     console.log(endResult);
+
+    res.json({name:endResult})
     
  }
 

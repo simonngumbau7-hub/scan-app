@@ -59,6 +59,8 @@ function capturePhoto(params) {
 
   captureButton.classList.add("hide")
 
+  sendOCR()
+
   closeCamera()
     
 }
@@ -75,20 +77,19 @@ function closeCamera(params) {
     tv.srcObject = null;
     
 }
+
+            
+            // READ TEXT
+
+const productName = document.querySelector(".product-name")
     
-/*
-    
-openCamera.addEventListener("click", sendOCR);
 
 async function sendOCR() {
 
-    const result = await Tesseract.recognize("paula.webp", "eng")
+    const result = await Tesseract.recognize(canvas, "eng")
 
     let text = result.data.text
-
-    console.log(text);
     
-
     const send = await fetch("/ocr", {
         method:"POST",
         headers:{
@@ -98,7 +99,11 @@ async function sendOCR() {
             ocr:text
         })
     })
+
+    const nameObj = await send.json()
+
+    productName.textContent = nameObj.name;
     
 }
 
-*/
+

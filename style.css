@@ -32,10 +32,12 @@ video{
     border-radius: 30px;
     width:90vw;
     max-height: 50vh;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .hide{
     display:none;
 }
+
+
 
