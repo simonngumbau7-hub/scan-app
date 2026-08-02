@@ -28,6 +28,7 @@ async function openCamera(params) {
        tv.srcObject = stream
 
        captureButton.classList.remove("hide")
+       tv.classList.remove("hide")
 
     } catch (error) {
 
@@ -58,6 +59,7 @@ async function capturePhoto(params) {
   drawer.drawImage(tv, 0, 0)
 
   captureButton.classList.add("hide")
+  tv.classList.add("hide")
 
   await sendOCR()
 
