@@ -14,12 +14,12 @@ openCameraButton.addEventListener("click", openCamera)
 
 
 async function openCamera(params) {
-
+    
    try {
         
        stream = await navigator.mediaDevices.getUserMedia({
         video: {
-            facingMode:"user",
+            facingMode:"environment",
             width:200,
             height:200
         }
@@ -37,7 +37,6 @@ async function openCamera(params) {
             message.textContent = " "
         }, 3000)
 
-        document.reload()
         
     }
     
