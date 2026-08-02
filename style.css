@@ -30,6 +30,8 @@ button, p{
 video{
     margin-top: 10px;
     border-radius: 30px;
+    width:400px;
+    height:700px;
 }
 
 .hide{
