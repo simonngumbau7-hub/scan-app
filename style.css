@@ -31,7 +31,8 @@ video{
     margin-top: 10px;
     border-radius: 30px;
     width:400px;
-    height:700px;
+    height:300px;
+    max-height: 50vh;
 }
 
 .hide{
