@@ -14,12 +14,12 @@ app.use(express.json())
 
 app.use(express.static(__dirname))
 
-let ocr
+let ocr;
 
-let prompt
+let prompt;
 
 app.post("/ocr", (req, res)=>{
-     ocr  = req.body.ocr
+     ocr  =  req.body.ocr
 
  async function getGrok(params) {
 
@@ -47,8 +47,7 @@ app.post("/ocr", (req, res)=>{
         Return ONLY the product name. No explnations, no quotation marks, no extra text
 
         Here is the OCR Text : ${ocr}
-
-        `
+       `
 
     const result = await sendMesage()
     const endResult = result.choices[0].message.content;
@@ -61,11 +60,10 @@ app.post("/ocr", (req, res)=>{
  getGrok()
 
 
- async function sendMesage(params) {
 
 
-
-    const response = await agent
+ async function sendMesage() {
+   const response = await agent
         .chat
         .completions
         .create({

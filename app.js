@@ -48,7 +48,7 @@ async function openCamera(params) {
 
 captureButton.addEventListener("click", capturePhoto)
 
-function capturePhoto(params) {
+async function capturePhoto(params) {
 
   const drawer = canvas.getContext("2d")
 
@@ -59,7 +59,7 @@ function capturePhoto(params) {
 
   captureButton.classList.add("hide")
 
-  sendOCR()
+  await sendOCR()
 
   closeCamera()
     
@@ -68,7 +68,7 @@ function capturePhoto(params) {
 
                     // CLOSE CAMERA
 
-function closeCamera(params) {
+ function closeCamera(params) {
 
     stream.getTracks().forEach(track => {
         track.stop()
