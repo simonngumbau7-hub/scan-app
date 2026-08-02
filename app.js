@@ -1,76 +1,65 @@
 
 
-const openCamera = document.querySelector("button");
+const openCameraButton = document.querySelector(".scan");
 const tv = document.querySelector("video");
 const canvas = document.getElementById("photo") // drawing board
 const captureButton = document.getElementById("capture")
-
-
-/*
+const message = document.getElementById("guide")
 let stream;
 
 
-openCamera.addEventListener("click", getPicture);
-
-async function getPicture(params) {
+openCameraButton.addEventListener("click", openCamera)
 
 
+async function openCamera(params) {
 
-    stream = await navigator.mediaDevices.getUserMedia({
-        video:{
-            facingMode : "user",
-            width: 300,
-            height: 300
+   try {
+        
+       stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+            facingMode:"user",
+            width:200,
+            height:200
         }
-    })
+       })
 
+       tv.srcObject = stream
 
-    tv.srcObject = stream
+       captureButton.classList.remove("hide")
 
-    captureButton.style.display = " block"
+    } catch (error) {
 
-    captureButton.addEventListener("click", capturePhoto)
+        message.textContent = "Please allow camera access in order to scan a product"
 
+        setInterval(()=>{
+            message.textContent = " "
+        }, 3000)
 
-
-
+        document.reload()
+        
+    }
     
 }
 
-let text;
+captureButton.addEventListener("click", capturePhoto)
 
-async function capturePhoto(){
 
-    // GET DRAWING PEN
-    const drawer = canvas.getContext("2d")
+function capturePhoto(params) {
 
-    // MATCH CANVAS SIZE WITH VIDEO ELEMENT SIZE
-    canvas.width = tv.videoWidth
-    canvas.height = tv.videoHeight
+  const drawer = canvas.getContext("2d")
 
-    drawer.drawImage(tv, 0,0)
+  canvas.width = tv.videoWidth
+  canvas.height = tv.videoHeight
 
+  drawer.drawImage(tv, 0, 0)
+
+  captureButton.classList.add("hide")
     
-
-    openCamera.addEventListener("click", sendOCR);
-    
-    const result = await Tesseract.recognize("pore.webp", "eng")
-
-    text = result.data.text
-    console.log(text);
-
-    stream.getTracks().forEach( track => {
-        track.stop()
-    });
-
-    tv.srcObject = null;
-    
-    captureButton.style.display = "none"
-
-    sendOCR()
-
 }
-*/
+
+    
+/*
+    
 openCamera.addEventListener("click", sendOCR);
 
 async function sendOCR() {
@@ -93,3 +82,5 @@ async function sendOCR() {
     })
     
 }
+
+*/

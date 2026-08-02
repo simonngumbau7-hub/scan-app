@@ -32,7 +32,7 @@ video{
     border-radius: 30px;
 }
 
-canvas{
-    display: none;
+.hide{
+    display:none;
 }
 
